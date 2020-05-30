@@ -1,9 +1,6 @@
 $( document ).ready(function() {
     onGetCaptcha();
     toggleTimer();
-    // var url = (window.location != window.parent.location) ? document.referrer : document.location;
-     var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
-     console.log(url);
      $('#name').focus();
    
 });

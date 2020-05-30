@@ -152,7 +152,7 @@
 
 // }
  var ifrm = document.createElement("iframe");
-        ifrm.setAttribute("src", "http://localhost:8080/dangki.html");
+        ifrm.setAttribute("src", "dangki.html");
         ifrm.style.width = "100%";
         ifrm.style.height = "86.4vh";
         ifrm.style.border= "none";
