@@ -1,0 +1,150 @@
+button:focus {
+  outline: none !important; }
+
+.register .row {
+  margin: 0 0px; }
+.register .head {
+  margin-bottom: 30px; }
+  .register .head h3 {
+    font-size: 33px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 30px; }
+  .register .head p {
+    font-size: 17px;
+    font-weight: 300; }
+.register .right-form {
+  padding-top: 10px; }
+.register .form-login {
+  width: 70%;
+  margin: auto;
+  text-align: center; }
+  .register .form-login .input-text {
+    margin-bottom: 20px; }
+    .register .form-login .input-text p {
+      margin-bottom: 0;
+      color: red;
+      font-size: 13px;
+      text-align: left;
+      margin-top: 10px; }
+    .register .form-login .input-text input {
+      border-radius: 4px;
+      border: 1px solid #dcdfe6;
+      height: 43px;
+      color: #606266; }
+      .register .form-login .input-text input:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: #dcdfe6; }
+      .register .form-login .input-text input:-webkit-input-placeholder {
+        /* Edge */
+        color: #60626699; }
+      .register .form-login .input-text input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #60626699; }
+      .register .form-login .input-text input::placeholder {
+        color: #60626699; }
+    .register .form-login .input-text button {
+      border: none !important;
+      background-color: #F2C94D;
+      color: #000000 !important;
+      padding: 5px 25px;
+      font-size: 14px;
+      position: relative; }
+      .register .form-login .input-text button svg {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        display: none; }
+    .register .form-login .input-text label {
+      margin-bottom: 0; }
+  .register .form-login .input-agree {
+    text-align: left; }
+  .register .form-login .box-captcha {
+    display: flex;
+    margin-bottom: 20px; }
+    .register .form-login .box-captcha .lable-capcha {
+      width: 150px;
+      min-width: 150px;
+      text-align: left;
+      font-weight: 500;
+      margin-top: 10px;
+      font-size: 16px; }
+    .register .form-login .box-captcha .image-capcha {
+      display: flex;
+      flex-wrap: wrap; }
+      .register .form-login .box-captcha .image-capcha img {
+        height: 55px;
+        width: 160px;
+        border: 1px solid #DCDFE6; }
+    .register .form-login .box-captcha .change-capcha {
+      padding-left: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      color: #4285F4 !important; }
+      .register .form-login .box-captcha .change-capcha img {
+        width: 30px;
+        padding-right: 10px;
+        height: auto;
+        border: none; }
+.register .per-otp {
+  text-align: center;
+  width: 70%;
+  margin: auto; }
+  .register .per-otp .input-otp {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; }
+    .register .per-otp .input-otp input {
+      font-size: 35px;
+      text-align: center;
+      width: 250px; }
+      .register .per-otp .input-otp input:focus {
+        outline: none; }
+  .register .per-otp .btn-sign-in {
+    border: none !important;
+    background-color: #F2C94D;
+    color: #000000 !important;
+    padding: 5px 25px;
+    font-size: 14px;
+    position: relative; }
+    .register .per-otp .btn-sign-in svg {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      display: none; }
+  .register .per-otp .send-otp {
+    border: none;
+    background-color: transparent !important;
+    color: #0061AF !important;
+    padding: 0 !important; }
+    .register .per-otp .send-otp:disabled {
+      color: #ddd; }
+  .register .per-otp .text-center {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 30px; }
+.register .left-form {
+  height: 100%;
+  position: fixed !important;
+  right: 0;
+  padding: 0px; }
+  .register .left-form .images-right {
+    height: 100%;
+    width: 100%;
+    padding-top: 0 !important;
+    object-fit: cover; }
+
+@media (max-width: 767px) {
+  .register .left-form {
+    display: none; }
+
+  .register .form-login, .register .per-otp {
+    width: 100%; } }
+
+/*# sourceMappingURL=style2.css.map */

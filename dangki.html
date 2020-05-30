@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test đăng kí</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/style2.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<div class="register">
+		<!-- <div class="container"> -->
+			
+			<div class="row">
+				<div class="col-md-6 right-form">
+					<div class="form-login">
+						<div class="head">
+							<h3>Đăng ký AI CALL CENTER</h3>
+							<p>Trải nghiệm tổng đài tự động</p>
+						</div>
+						<form method="post" onsubmit="return false;">
+							<div class="input-text">
+								<input type="text" class="form-control" placeholder="Họ tên" id="name" name="name" onkeyup="checkName()">
+								<p id="error-name" style="display: none;"></p>
+							</div>
+						
+							<div class="input-text">
+								<input type="text" class="form-control" placeholder="Số điện thoại" id="phone" name="phone" onkeyup="checkPhone()">
+								<p id="error-phone" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<input type="text" class="form-control" placeholder="Email" id="email" name="email" onkeyup="checkEmail()">
+								<p id="error-email" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<input type="password" class="form-control" placeholder="Mã kinh doanh" id="code-business" name="codebusiness">
+								<p id="error-code" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<input type="password" class="form-control" placeholder="Mật khẩu" id="pass" name="pass" onkeyup="checkPass()">
+								<p id="error-pass" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<input type="password" class="form-control" placeholder="Nhập lại mật khẩu" id="repass" name="repass" onkeyup="checkRePass()">
+								<p id="error-repass" style="display: none;"></p>
+							</div>
+							<div class="box-captcha">
+								<label class="lable-capcha">Mã captcha</label>
+								<div class="image-capcha">
+									<img src="" alt="" class="img-fluid captcha">
+									<a href="javascript:void(0)" class="change-capcha" onclick="onGetCaptcha()">
+										<img src="images/reCaptcha.png" alt="">
+                                                Đổi mã khác
+                                    </a>
+								</div>
+							</div>
+							<div class="input-text box-captcha">
+								<label class="lable-capcha">Nhập mã captcha</label>
+								<div class="input-capcha">
+									<input type="text" class="form-control" placeholder="Mã captcha" id="captcha" name="captcha">
+									<p id="error-captcha" style="display: none;"></p>
+								</div>
+							</div>
+							<div class="input-agree input-text">
+								<label for="vehicle1"> 
+									<input type="checkbox" id="agree" name="agree" value="agree" style="width: 15px; height: 15px;" onchange="checkAgree()">
+									Tôi đồng ý với <a href="https://es.aicallcenter.vn/default/terms-used" target="_blank">Điều khoản sử dụng </a>và <a href="https://es.aicallcenter.vn/default/privacy-policy" target="_blank">Chính sách bảo mật</a>
+								</label>
+								<p id="error-check" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<p id="error-general" style="display: none;"></p>
+							</div>
+							<div class="input-text">
+								<button type="submit" onclick="onSave()" class="btn-continue">
+									<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									     width="25px" height="25px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+									  <path fill="#fff" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+									    <animateTransform attributeType="xml"
+									      attributeName="transform"
+									      type="rotate"
+									      from="0 25 25"
+									      to="360 25 25"
+									      dur="0.9s"
+									      repeatCount="indefinite"/>
+									    </path>
+									</svg>
+									Tiếp tục
+								</button>
+
+							</div>
+							
+						</form>
+					</div>
+					<div class="per-otp" style="display: none;">
+						<div class="head">
+							<h3>Chỉ còn một bước nữa!</h3>
+							<p>Bảo mật của bạn là ưu tiên của chúng tôi</p>
+						</div>
+				        <div>
+				            <p style="font-size: 14px;">Chúng tôi vừa thực hiện một cuộc gọi tới số thuê bao của bạn để cung cấp mã xác nhận (OTP) , vui lòng nhập dưới đây.</p>
+				        </div>
+				        <form action="" class="code-otp" onsubmit="return false;">
+				            <div class="input-otp">
+				                <input
+				                	id="codeOtpStep2"
+				                    type="text"
+				                    ref="code_otp"
+				                    class="focus_next1"
+				                    maxlength="4"
+				                    >
+				            </div>
+				            <p class="text-center" id="error_otp"></p>
+				            <div class="column is-12">
+				                <p class="control">
+				                <button
+				                	type="submit"
+				                    class="btn-sign-in"
+				                    name="login-button"
+				                    onclick="onSubmitSignIn()">
+					                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										     width="25px" height="25px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+										  	<path fill="#fff" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+										    	<animateTransform attributeType="xml"
+											      attributeName="transform"
+											      type="rotate"
+											      from="0 25 25"
+											      to="360 25 25"
+											      dur="0.9s"
+											      repeatCount="indefinite"/>
+										    </path>
+										</svg>
+				                        Đăng ký
+				                </button>
+				                <!-- <div class="loading"></div> -->
+				                </p>
+				            </div>
+				        </form>
+
+				        <div class="otp-foter">
+				            <p>Yêu cầu  <button class="send-otp" onclick="reSendOtp()">gửi lại mã</button> sau <span class="timer"></span> giây</p>
+				            <!--                                <a href="#" class="account-other">Đăng nhập bằng tài khoản khác</a>-->
+				        </div>
+				    </div>
+				</div>
+				<div class="col-md-6 left-form">
+					<img src="images/robo.png" alt="" class="img-fluid images-right">
+				</div>
+			</div>
+			
+		<!-- </div> -->
+	</div>
+</body>
+<script type="text/javascript">
+	
+	// $( document ).ready(function() {
+ //    	const recaptchaScript = document.createElement('script');
+	//     recaptchaScript.setAttribute('src', 'D:/dang-ki/dangki.js');
+	//     recaptchaScript.setAttribute('id', 'stringeeXChatWidget');
+	//     document.head.appendChild(recaptchaScript);
+	// });
+</script>
+</html>
