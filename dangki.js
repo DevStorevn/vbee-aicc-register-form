@@ -1,5 +1,5 @@
 var ifrm = document.createElement("iframe");
-        ifrm.setAttribute("src", "https://dangky.aicallcenter.vn");
+        ifrm.setAttribute("src", "https://dangky.aicallcenter.vn/index.html");
         ifrm.style.width = "100%";
         ifrm.style.height = "86.4vh";
         ifrm.style.border= "none";
