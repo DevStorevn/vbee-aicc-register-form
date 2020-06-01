@@ -22,7 +22,7 @@
 							<h3>Đăng ký AI CALL CENTER</h3>
 							<p>Trải nghiệm tổng đài tự động</p>
 						</div>
-						<form method="post" onsubmit="return false;">
+						<form  onsubmit="return false;">
 							<div class="input-text">
 								<input type="text" class="form-control" placeholder="Họ tên" id="name" name="name" onkeyup="checkName()">
 								<p id="error-name" style="display: none;"></p>
@@ -37,7 +37,7 @@
 								<p id="error-email" style="display: none;"></p>
 							</div>
 							<div class="input-text">
-								<input type="password" class="form-control" placeholder="Mã kinh doanh" id="code-business" name="codebusiness">
+								<input type="text" class="form-control" placeholder="Mã kinh doanh" id="code-business" name="codebusiness">
 								<p id="error-code" style="display: none;"></p>
 							</div>
 							<div class="input-text">
@@ -73,7 +73,7 @@
 								<p id="error-check" style="display: none;"></p>
 							</div>
 							<div class="input-text">
-								<p id="error-general" style="display: none;"></p>
+								<p id="error-general" style="display: none; text-align: center;"></p>
 							</div>
 							<div class="input-text">
 								<button type="submit" onclick="onSave()" class="btn-continue">

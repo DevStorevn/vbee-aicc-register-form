@@ -224,17 +224,20 @@ function onSave(){
 	            $('.per-otp').css('display','block');
 	            $('.form-login').css('display','none');
 	             $('#codeOtpStep2').focus();
+	             $("#error-general").css({
+					"display":"none"
+				});
 	            currentStep = 1;
               	break;
-            case 1:
-             	$("#error-phone").html(response.message);
-				$("#error-phone").css({
-					"display":"block"
-				});
-				$("#phone").css("border","1px solid red");
-				$("#phone").focus();
-				onGetCaptcha();
-              	break;
+    //         case 1:
+    //          	$("#error-phone").html(response.message);
+				// $("#error-phone").css({
+				// 	"display":"block"
+				// });
+				// $("#phone").css("border","1px solid red");
+				// $("#phone").focus();
+				// onGetCaptcha();
+    //           	break;
             case 2:
              	$("#error-captcha").html(response.message);
 				$("#error-captcha").css({
@@ -242,6 +245,9 @@ function onSave(){
 				});
 				$("#captcha").css("border","1px solid red");
 				$("#captcha").focus();
+				$("#error-general").css({
+					"display":"none"
+				});
 				onGetCaptcha();
               	break;
             default:
@@ -345,7 +351,7 @@ function toggleTimer() {
 function reSendOtp() {
     $('#codeOtpStep2').focus();
     document.getElementById('codeOtpStep2').value = " ";
-    $("#error_otp").html(response.message);
+    $("#error_otp").html("");
 	$("#error_otp").css({
 		"display":"block"
 	});
