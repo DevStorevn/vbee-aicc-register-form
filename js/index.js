@@ -167,7 +167,7 @@ function checkAgree(){
 }
 
 function onGetCaptcha(){
-    $.get('http://frontend.dev.test:8080/default/get-captcha', {session:sessions}, function (response) {
+    $.get('https://cp-dev.aicallcenter.vn/default/get-captcha', {session:sessions}, function (response) {
 	     $('img.captcha').attr("src",response.data.image );
 	       	 sessions = response.data.session;
 	});
@@ -211,7 +211,7 @@ function onSave(){
         session
     };
     $.ajax({
-        url: 'http://frontend.dev.test:8080/default/register-captcha',
+        url: 'https://cp-dev.aicallcenter.vn/default/register-captcha',
         type: "POST",
     	method: 'POST',
         data: data,
@@ -289,7 +289,7 @@ function onSubmitSignIn()
 	 var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
     // console.log(window.parent.location);
 	 $.ajax({
-        url: "http://frontend.dev.test:8080/default/register-vbee",
+        url: "https://cp-dev.aicallcenter.vn/default/register-vbee",
         type: "POST",
         dataType: "json",
         data: data,
