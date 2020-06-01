@@ -123,7 +123,7 @@ button:focus {
     color: #0061AF !important;
     padding: 0 !important; }
     .register .per-otp .send-otp:disabled {
-      color: #ddd; }
+      color: #c0c4cc !important; }
   .register .per-otp .text-center {
     color: red;
     font-size: 13px;

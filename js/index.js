@@ -1,6 +1,9 @@
 $( document ).ready(function() {
     onGetCaptcha();
     toggleTimer();
+    // var url = (window.location != window.parent.location) ? document.referrer : document.location;
+     var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
+     // console.log(url);
      $('#name').focus();
    
 });
@@ -9,7 +12,7 @@ var error = true;
 let interval = null;
 var isRunning = false;
 let timer = 60;
-let currentStep = 1;
+let currentStep = 0;
 let countButton = 0;
 
 function checkPhone(){
@@ -164,7 +167,7 @@ function checkAgree(){
 }
 
 function onGetCaptcha(){
-    $.get('https://cp-dev.aicallcenter.vn/default/get-captcha', {session:sessions}, function (response) {
+    $.get('http://frontend.dev.test:8080/default/get-captcha', {session:sessions}, function (response) {
 	     $('img.captcha').attr("src",response.data.image );
 	       	 sessions = response.data.session;
 	});
@@ -208,7 +211,7 @@ function onSave(){
         session
     };
     $.ajax({
-        url: 'https://cp-dev.aicallcenter.vn/default/register-captcha',
+        url: 'http://frontend.dev.test:8080/default/register-captcha',
         type: "POST",
     	method: 'POST',
         data: data,
@@ -216,10 +219,10 @@ function onSave(){
           let code = response.code;
           switch (code) {
             case 0:
+            	$('.btn-continue svg').css('display','block');
+	            $('.btn-continue').attr('disabled',true);
 	            $('.per-otp').css('display','block');
 	            $('.form-login').css('display','none');
-	            $('.btn-continue svg').css('display','block');
-	            $('.btn-continue').attr('disabled',true);
 	             $('#codeOtpStep2').focus();
 	            currentStep = 1;
               	break;
@@ -286,7 +289,7 @@ function onSubmitSignIn()
 	 var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
     // console.log(window.parent.location);
 	 $.ajax({
-        url: "https://cp-dev.aicallcenter.vn/default/register-vbee",
+        url: "http://frontend.dev.test:8080/default/register-vbee",
         type: "POST",
         dataType: "json",
         data: data,
@@ -340,13 +343,19 @@ function toggleTimer() {
 	}, 1000);
 }
 function reSendOtp() {
-      // this.$refs.code_otp.focus();
-      // this.otp = Object.assign({}, { error: false, message: "" });
+    $('#codeOtpStep2').focus();
+    document.getElementById('codeOtpStep2').value = " ";
+    $("#error_otp").html(response.message);
+	$("#error_otp").css({
+		"display":"block"
+	});
+	$("#codeOtpStep2").css("border","1px solid #dcdfe6");
   	countButton = Number(countButton) + 1;
   	if (countButton <= 3) {
     // this.countButton += 1;
    		timer = 60;
    		$('.timer').html(timer);
+   		toggleTimer();
      	onSave();
     // }
   	} else {
