@@ -15,6 +15,12 @@ $color-bg:#F2C94D;
         display: none;
     }
 }
+a{
+    &:focus{
+        outline: none !important;
+        outline-color:transparent !important;
+    }
+}
 button{
     &:focus{
         outline: none !important;

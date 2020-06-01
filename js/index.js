@@ -167,7 +167,7 @@ function checkAgree(){
 }
 
 function onGetCaptcha(){
-    $.get('https://cp-dev.aicallcenter.vn/default/get-captcha', {session:sessions}, function (response) {
+    $.get('http://frontend.dev.test:8080/default/get-captcha', {session:sessions}, function (response) {
 	     $('img.captcha').attr("src",response.data.image );
 	       	 sessions = response.data.session;
 	});
@@ -211,7 +211,7 @@ function onSave(){
         session
     };
     $.ajax({
-        url: 'https://cp-dev.aicallcenter.vn/default/register-captcha',
+        url: 'http://frontend.dev.test:8080/default/register-captcha',
         type: "POST",
     	method: 'POST',
         data: data,
@@ -239,10 +239,10 @@ function onSave(){
 				// onGetCaptcha();
     //           	break;
             case 2:
-             	$("#error-captcha").html(response.message);
-				$("#error-captcha").css({
+            	$("#error-captcha").css({
 					"display":"block"
 				});
+             	$("#error-captcha").html(response.message);
 				$("#captcha").css("border","1px solid red");
 				$("#captcha").focus();
 				$("#error-general").css({
@@ -295,7 +295,7 @@ function onSubmitSignIn()
 	 var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
     // console.log(window.parent.location);
 	 $.ajax({
-        url: "https://cp-dev.aicallcenter.vn/default/register-vbee",
+        url: "http://frontend.dev.test:8080/default/register-vbee",
         type: "POST",
         dataType: "json",
         data: data,
