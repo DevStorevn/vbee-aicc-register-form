@@ -238,8 +238,15 @@ function onSave(){
 				// $("#phone").focus();
 				// onGetCaptcha();
     //           	break;
-            case 2:
-            	$("#error-captcha").css({
+            case 1:
+            	$("#error-general").html(response.message);
+				$("#error-general").css({
+					"display":"block"
+				});
+				onGetCaptcha();
+              	break;
+            default:
+              	$("#error-captcha").css({
 					"display":"block"
 				});
              	$("#error-captcha").html(response.message);
@@ -247,13 +254,6 @@ function onSave(){
 				$("#captcha").focus();
 				$("#error-general").css({
 					"display":"none"
-				});
-				onGetCaptcha();
-              	break;
-            default:
-              $("#error-general").html(response.message);
-				$("#error-general").css({
-					"display":"block"
 				});
 				onGetCaptcha();
               break;
