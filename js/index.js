@@ -184,6 +184,16 @@ function onGetCaptcha(){
  //     });
 }
 
+var src = window.location.href;
+var postion = src.indexOf("key=");
+var key = src.slice(postion + 4);
+var business;
+if( postion < 0 ){
+	business ='';
+} else {
+	business = key;
+}
+
 function onSave(){
 	checkPhone();
 	checkName();
@@ -199,7 +209,7 @@ function onSave(){
 	var name = document.getElementById('name').value;
 	var email = document.getElementById('email').value;
 	var captcha = document.getElementById('captcha').value;
-	var business_code = document.getElementById('code-business').value;
+	var business_code = business;
 	var session = sessions;
 	let data = {
        	username:  phone,
@@ -239,14 +249,15 @@ function onSave(){
 				// onGetCaptcha();
     //           	break;
             case 1:
-            	$("#error-general").html(response.message);
+             $("#error-general").html(response.message);
 				$("#error-general").css({
 					"display":"block"
 				});
+            	
 				onGetCaptcha();
               	break;
             default:
-              	$("#error-captcha").css({
+             	$("#error-captcha").css({
 					"display":"block"
 				});
              	$("#error-captcha").html(response.message);
