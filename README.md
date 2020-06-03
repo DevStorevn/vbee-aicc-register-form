@@ -7,3 +7,4 @@
          document.head.appendChild(recaptchaScript);
        }); 
      </script>  
+* Key là mã kinh doanh
