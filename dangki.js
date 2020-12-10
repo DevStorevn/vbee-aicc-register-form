@@ -1,5 +1,5 @@
 var scripts = document.getElementsByTagName( "script" );
-const lastScript = scripts[scripts.length - 1];
+const lastScript = scripts[scripts.length - 2];
 var src = lastScript.src;
 var postion = src.search("key=");
 var key = src.slice(postion);
@@ -9,7 +9,6 @@ if( postion < 0){
 } else {
 	url_ifr = "https://dangky.aicallcenter.vn/index.html" + "?" + key;
 }
-// console.log(url_ifr);
 
  var ifrm = document.createElement("iframe");
     ifrm.setAttribute("src", url_ifr);

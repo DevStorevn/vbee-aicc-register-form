@@ -209,6 +209,7 @@ function onSave(){
 	var name = document.getElementById('name').value;
 	var email = document.getElementById('email').value;
 	var captcha = document.getElementById('captcha').value;
+	var password = document.getElementById('pass').value;
 	var business_code = business;
 	var session = sessions;
 	let data = {
@@ -218,13 +219,15 @@ function onSave(){
         phone,
         business_code,
         captcha,
+		password,
+		last_name: name,
         session
     };
     $.ajax({
-        url: 'https://aicallcenter.vn/default/register-captcha',
-        type: "POST",
-    	method: 'POST',
-        data: data,
+		url: 'https://aicallcenter.vn/default/register-captcha',
+		type: "POST",
+		method: 'POST',
+		data: data,
         success: function(response) {
           let code = response.code;
           switch (code) {
@@ -284,7 +287,7 @@ function onSubmitSignIn()
 	var name = document.getElementById('name').value;
 	var email = document.getElementById('email').value;
 	var captcha = document.getElementById('captcha').value;
-	var business_code = document.getElementById('code-business').value;
+	var business_code = business;
 	var password = document.getElementById('pass').value;
 	var session = sessions;
 	var firstName = name.split(" ").slice(0, -1).join(" ");
@@ -303,8 +306,8 @@ function onSubmitSignIn()
 	    is_personal:1
 	};
 
-	 var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location;
-    // console.log(window.parent.location);
+	 var url = (window.location.origin != window.location.ancestorOrigins[0]) ? window.location.ancestorOrigins[0] : document.location.hostname;
+
 	 $.ajax({
         url: "https://aicallcenter.vn/default/register-vbee",
         type: "POST",
@@ -318,7 +321,7 @@ function onSubmitSignIn()
 	           $('.btn-sign-in svg').css('display','block');
 	           $('.btn-sign-in').attr('disabled',true);
               // console.log(domain);
-               window.parent.location = url;
+               window.location.href = url;
               break;
             case 1:
               // me.currentStep = 2;
