@@ -210,6 +210,7 @@ function onSave(){
 	var email = document.getElementById('email').value;
 	var captcha = document.getElementById('captcha').value;
 	var password = document.getElementById('pass').value;
+	var rePassword = document.getElementById('repass').value;
 	var business_code = business;
 	var session = sessions;
 	let data = {
@@ -219,8 +220,9 @@ function onSave(){
         phone,
         business_code,
         captcha,
-		password,
-		last_name: name,
+				password,
+				rePassword,
+				last_name: name,
         session
     };
     $.ajax({
